@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Square from "./Square";
+import Params from "./Params";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    a: 1,
+    h: 2,
+  };
+
+  handleChange = ({ a, h }) => {
+    this.setState({ a, h });
+  };
+
+  render() {
+    return (
+      <>
+        <Square a={this.state.a} h={this.state.h} />
+        <Params handleChange={this.handleChange} />
+      </>
+    );
+  }
 }
 
 export default App;
